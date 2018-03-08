@@ -1,0 +1,607 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/7/2018 7:24:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JWANG23"
+  DTS:CreatorName="JWANG23\JinWang"
+  DTS:DTSID="{DB1851EF-46BB-462C-9849-B4C6DCA4F1E6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3006.16"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Extract"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{0F9AFD89-1166-48D6-9C83-0DCD6D455918}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load table ExtractProducts"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{33707C5A-AF5F-419B-9EF1-6E2CA65BF3C3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load table ExtractProducts"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load table ExtractProducts\Table ExtractProducts"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Table ExtractProducts"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ExtractProducts]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load table ExtractProducts\Table ExtractProducts.Connections[OleDbConnection]"
+                  connectionManagerID="{08764419-4E53-4E8A-B267-64E2578C6323}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[JWANG23_SQL2016SSDB.SlowChangingDim]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].Columns[ProductCode]"
+                      cachedDataType="i4"
+                      cachedName="ProductCode"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[ProductCode]"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductCode]" />
+                    <inputColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductName]" />
+                    <inputColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].Columns[RawMaterial]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RawMaterial"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[RawMaterial]"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[RawMaterial]" />
+                    <inputColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].Columns[AmountOfRawMaterial]"
+                      cachedDataType="numeric"
+                      cachedName="AmountOfRawMaterial"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[AmountOfRawMaterial]"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[AmountOfRawMaterial]" />
+                    <inputColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].Columns[ProductSubtypeName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ProductSubtypeName"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubtypeName]"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductSubtypeName]" />
+                    <inputColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].Columns[ProductTypeName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ProductTypeName"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeName]"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductTypeName]" />
+                    <inputColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].Columns[ProductTypeShortName]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="ProductTypeShortName"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeShortName]"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductTypeShortName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[ProductCode]"
+                      dataType="i4"
+                      name="ProductCode" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[RawMaterial]"
+                      dataType="wstr"
+                      length="50"
+                      name="RawMaterial" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[AmountOfRawMaterial]"
+                      dataType="numeric"
+                      name="AmountOfRawMaterial"
+                      precision="18"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubtypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ProductSubtypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ProductTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeShortName]"
+                      dataType="wstr"
+                      length="12"
+                      name="ProductTypeShortName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load table ExtractProducts\Table ExtractProducts.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load table ExtractProducts\Table ExtractProducts.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table ExtractProducts.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load table ExtractProducts\Table ExtractProducts.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load table ExtractProducts\Table Products"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Table Products"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Products]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load table ExtractProducts\Table Products.Connections[OleDbConnection]"
+                  connectionManagerID="{08764419-4E53-4E8A-B267-64E2578C6323}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[JWANG23_SQL2016SSDB.SlowChangingDim]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[ProductCode]"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductCode]"
+                      name="ProductCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                      length="50"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductName]"
+                      name="ProductName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[RawMaterial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[RawMaterial]"
+                      length="50"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[RawMaterial]"
+                      name="RawMaterial"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[AmountOfRawMaterial]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[AmountOfRawMaterial]"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[AmountOfRawMaterial]"
+                      name="AmountOfRawMaterial"
+                      precision="18"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductSubtypeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[ProductSubtypeName]"
+                      length="50"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductSubtypeName]"
+                      name="ProductSubtypeName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductTypeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[ProductTypeName]"
+                      length="50"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductTypeName]"
+                      name="ProductTypeName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductTypeShortName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[ProductTypeShortName]"
+                      length="12"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].Columns[ProductTypeShortName]"
+                      name="ProductTypeShortName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[ProductCode]"
+                      dataType="i4"
+                      name="ProductCode" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[RawMaterial]"
+                      dataType="wstr"
+                      length="50"
+                      name="RawMaterial" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[AmountOfRawMaterial]"
+                      dataType="numeric"
+                      name="AmountOfRawMaterial"
+                      precision="18"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[ProductSubtypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ProductSubtypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[ProductTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ProductTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output].ExternalColumns[ProductTypeShortName]"
+                      dataType="wstr"
+                      length="12"
+                      name="ProductTypeShortName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ProductCode]"
+                      dataType="i4"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ProductCode]"
+                      name="ProductCode" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                      name="ProductName" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[RawMaterial]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[RawMaterial]"
+                      name="RawMaterial" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[AmountOfRawMaterial]"
+                      dataType="numeric"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[AmountOfRawMaterial]"
+                      name="AmountOfRawMaterial"
+                      precision="18"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ProductSubtypeName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ProductSubtypeName]"
+                      name="ProductSubtypeName" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ProductTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ProductTypeName]"
+                      name="ProductTypeName" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ProductTypeShortName]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ProductTypeShortName]"
+                      name="ProductTypeShortName" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load table ExtractProducts.Paths[OLE DB Source Output]"
+              endId="Package\Load table ExtractProducts\Table ExtractProducts.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load table ExtractProducts\Table Products.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate ExtractProducts Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{13459EA0-289A-42A3-AC1F-3CC7238F64A9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate ExtractProducts Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{08764419-4E53-4E8A-B267-64E2578C6323}"
+          SQLTask:SqlStatementSource="truncate table dbo.ExtractProducts;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0298A750-37C4-4382-8FCB-5B2C1E1D6751}"
+      DTS:From="Package\Truncate ExtractProducts Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load table ExtractProducts" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="226.5,42"
+          Id="Package\Truncate ExtractProducts Table"
+          TopLeft="71,6.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Load table ExtractProducts"
+          TopLeft="85,102.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="185.875,48.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.9932421875,18.47314453125,35.986484375,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load table ExtractProducts">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148.5,42"
+          Id="Package\Load table ExtractProducts\Table Products"
+          TopLeft="99.5,26.5" />
+        <NodeLayout
+          Size="181.5,42"
+          Id="Package\Load table ExtractProducts\Table ExtractProducts"
+          TopLeft="90.1428571428571,141.285714285714" />
+        <EdgeLayout
+          Id="Package\Load table ExtractProducts.Paths[OLE DB Source Output]"
+          TopLeft="177.321428571429,68.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72.7857142857143"
+              Start="0,0"
+              End="0,65.2857142857143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.2857142857143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load table ExtractProducts\Table Products">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load table ExtractProducts\Table ExtractProducts">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
