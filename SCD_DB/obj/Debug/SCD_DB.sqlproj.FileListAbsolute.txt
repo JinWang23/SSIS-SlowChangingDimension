@@ -1,0 +1,5 @@
+C:\Users\JinWang\Documents\Visual Studio 2015\projects\SlowChaningDimension\SCD_DB\bin\Debug\SCD_DB.dacpac
+C:\Users\JinWang\Documents\Visual Studio 2015\projects\SlowChaningDimension\SCD_DB\bin\Debug\SCD_DB.dll
+C:\Users\JinWang\Documents\Visual Studio 2015\projects\SlowChaningDimension\SCD_DB\bin\Debug\SCD_DB.pdb
+C:\Users\JinWang\Documents\Visual Studio 2015\projects\SlowChaningDimension\SCD_DB\obj\Debug\SCD_DB.dll
+C:\Users\JinWang\Documents\Visual Studio 2015\projects\SlowChaningDimension\SCD_DB\obj\Debug\SCD_DB.pdb
